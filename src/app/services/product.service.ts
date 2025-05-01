@@ -28,4 +28,8 @@ export class ProductService {
       `${this.apiUrl}/products/category/jewelery?limit=4`
     );
   }
+
+  getProductById(id: number): Observable<Product> {
+    return this.http.get<Product>(`${this.apiUrl}/products/${id}`);
+  }
 }
