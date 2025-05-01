@@ -23,7 +23,7 @@
     class="bg-white w-[298px] absolute opacity-0 group-hover:opacity-90 group-hover:translate-y-[-43px] py-2 transition-all duration-300 px-5 flex justify-between items-center"
   >
     <button
-      class="bg-[#38b2ac] py-2 px-8 text-white rounded-2xl cursor-pointer"
+      class="bg-[#38b2ac] hover:bg-[#319795] py-2 px-8 text-white rounded-2xl cursor-pointer"
       (click)="cartService.addToCart(product())"
     >
       <img
@@ -33,7 +33,7 @@
       />
       <span class="ml-2 text-sm"> Agregar a carrito </span>
     </button>
-    <button class="cursor-pointer">
+    <button class="cursor-pointer" (click)="favoriteService.add(product())">
       <img src="images/favorites.svg" alt="Agregar a favoritos" class="w-7" />
     </button>
   </div>

@@ -1,1 +1,78 @@
-<p>product-details works!</p>
+<div class="pt-30 pb-20 container mx-auto">
+  <a routerLink="/" class="flex items-center gap-2 mt-5 mx-5 group mb-5">
+    <svg
+      width="800px"
+      height="800px"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-6 h-6"
+    >
+      <path
+        d="M14.2893 5.70708C13.8988 5.31655 13.2657 5.31655 12.8751 5.70708L7.98768 10.5993C7.20729 11.3805 7.2076 12.6463 7.98837 13.427L12.8787 18.3174C13.2693 18.7079 13.9024 18.7079 14.293 18.3174C14.6835 17.9269 14.6835 17.2937 14.293 16.9032L10.1073 12.7175C9.71678 12.327 9.71678 11.6939 10.1073 11.3033L14.2893 7.12129C14.6799 6.73077 14.6799 6.0976 14.2893 5.70708Z"
+        class="fill-gray-600 group-hover:fill-[#38b2ac] transition-colors duration-300"
+      />
+    </svg>
+    <span
+      class="text-gray-600 text-xl hover:text-[#38b2ac] transition-colors duration-300 cursor-pointer"
+      >Volver a productos</span
+    >
+  </a>
+  <div class="grid grid-cols-1 lg:grid-cols-2">
+    <div class="border border-gray-200 rounded-lg h-fit py-10 mx-5 md:mx-20">
+      <img
+        [src]="product()?.image"
+        [alt]="product()?.title"
+        class="w-96 h-fit rounded-lg mx-auto"
+      />
+    </div>
+    <div class="mx-5 mt-10">
+      <h2 class="text-3xl lg:text-4xl font-semibold">{{ product()?.title }}</h2>
+      <p class="text-xl font-semibold mt-2">
+        {{ product()?.price | currency }}
+      </p>
+      <p class="mt-10 text-gray-600 text-lg lg:w-2/3">
+        {{ product()?.description }}
+      </p>
+      <div
+        class="w-full lg:w-2/3 grid grid-cols-1 lg:grid-cols-5 gap-3 lg:gap-10 my-10"
+      >
+        <button
+          class="bg-[#38b2ac] hover:bg-[#319795] py-2 px-8 text-white rounded-lg cursor-pointer lg:col-span-3 transition-colors duration-300"
+          (click)="cartService.addToCart(product()!)"
+        >
+          <img
+            src="images/drawer.svg"
+            alt="Icono de carrito"
+            class="w-5 inline-block"
+          />
+          <span class="ml-2 text-sm"> Agregar a carrito </span>
+        </button>
+        <button
+          class="w-full bg-white hover:bg-gray-50 py-2 px-8 border border-gray-200 rounded-lg cursor-pointer lg:col-span-2 transition-colors duration-300"
+          (click)="favoriteService.add(product()!)"
+        >
+          <img
+            src="images/favorites.svg"
+            alt="Icono de favoritos"
+            class="w-5 inline-block"
+          />
+          <span class="ml-2 text-sm"> Favoritos </span>
+        </button>
+      </div>
+      <hr class="text-gray-200 lg:w-2/3" />
+      <div class="mt-5">
+        <h3 class="text-xl font-semibold mb-5">Detalles del Producto</h3>
+        <ul class="text-gray-600 list-disc pl-6 space-y-2">
+          <li>Materiales de alta calidad</li>
+          <li>Diseño cómodo y versátil</li>
+          <li>Hipoalergénico / Apto para pieles sensibles</li>
+          <li>Producción responsable y sostenible</li>
+          <li>Ajuste relajado o adaptado al cuerpo</li>
+          <li>Durabilidad garantizada</li>
+          <li>Diseño atemporal / elegante / moderno</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

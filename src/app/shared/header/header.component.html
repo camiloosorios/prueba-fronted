@@ -4,8 +4,15 @@
       <a routerLink="/">FreshStore</a>
     </h1>
     <div class="flex gap-5">
-      <a href="#" class="w-7">
+      <a routerLink="favorites" class="w-7 relative">
         <img src="images/favorites.svg" alt="Icono de favoritos" />
+        @if (favoriteService.favoriteProducts().length > 0) {
+        <div
+          class="absolute top-[-10px] left-5 bg-[#38b2ac] rounded-full text-xs px-2 text-white"
+        >
+          {{ favoriteService.getTotal() }}
+        </div>
+        }
       </a>
       <a routerLink="cart" class="w-7 relative">
         <img src="images/cart.svg" alt="Icono de carrito" />

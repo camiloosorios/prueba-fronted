@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { RouterLink } from '@angular/router';
+import { FavoriteService } from '../../services/favorite.service';
 
 @Component({
   selector: 'app-header',
@@ -10,4 +11,5 @@ import { RouterLink } from '@angular/router';
 })
 export class HeaderComponent {
   cartService = inject(CartService);
+  favoriteService = inject(FavoriteService);
 }
