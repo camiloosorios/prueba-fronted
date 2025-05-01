@@ -1,0 +1,23 @@
+<header class="bg-white p-5 text-xl shadow-sm fixed w-full z-10">
+  <div class="lg:container lg:mx-auto flex justify-between">
+    <h1 class="font-bold text-gray-800 cursor-pointer">
+      <a routerLink="/">FreshStore</a>
+    </h1>
+    <div class="flex gap-5">
+      <a href="#" class="w-7">
+        <img src="images/favorites.svg" alt="Icono de favoritos" />
+      </a>
+      <a routerLink="cart" class="w-7 relative">
+        <img src="images/cart.svg" alt="Icono de carrito" />
+        @if (cartService.cart().length > 0) {
+        <div
+          class="absolute top-[-10px] left-5 bg-red-400 rounded-full text-xs px-2 text-white"
+        >
+          {{ cartService.cart().length }}
+        </div>
+        }
+      </a>
+      <img src="images/menu.svg" alt="Menu Icon" class="w-7 lg:hidden" />
+    </div>
+  </div>
+</header>

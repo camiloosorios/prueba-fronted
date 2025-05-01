@@ -1,0 +1,130 @@
+<main class="bg-gradient-to-r from-[#edfafa] to-[#d6f5f6] px-5 pt-10">
+  <div class="lg:container lg:mx-auto md:grid md:grid-cols-2 md:gap-10">
+    <div class="pt-20">
+      <span class="text-white bg-[#4fd1c5] rounded-2xl px-3 py-1"
+        >Nueva Colección</span
+      >
+      <h2 class="text-4xl lg:text-6xl font-bold text-gray-800 mt-3">
+        Fresh Style
+      </h2>
+      <h3 class="text-4xl lg:text-6xl text-[#38b2ac] font-bold">
+        Temporada 2025
+      </h3>
+      <p class="my-5 lg:my-10 text-xl text-gray-700 lg:w-2/3">
+        Descubra nuestra nueva colección de prendas esenciales y versátiles
+        diseñados para mejorar tu estilo diario con materiales sustentables.
+      </p>
+      <div class="flex flex-col lg:flex-row lg:gap-5 lg:items-center">
+        <button
+          class="cursor-pointer w-full md:max-w-[300px] bg-[#38b2ac] hover:bg-[#319795] text-white text-xl py-3 px-10 rounded-lg flex justify-center items-center gap-5 transition-colors duration-300"
+          (click)="scrollToNewArrivals()"
+        >
+          Ver novedades
+          <img
+            src="images/right-arrow.svg"
+            alt="Flecha derecha"
+            class="w-7 inline-block"
+          />
+        </button>
+        <button
+          class="cursor-pointer w-full md:max-w-[300px] h-fit bg-white text-gray-700 text-xl py-3 px-10 rounded-lg text-center border border-gray-200 mt-5 lg:mt-0"
+          (click)="scrollToNewCollection()"
+        >
+          Explorar colección
+        </button>
+      </div>
+    </div>
+    <img
+      src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=800&h=1000&auto=format&fit=crop&ixlib=rb-4.0.3"
+      alt="Imagen de moda"
+      class="w-full lg:max-w-[450px] h-auto my-10 rounded-lg shadow-lg lg:ml-auto"
+    />
+  </div>
+</main>
+<section class="my-20 px-5 container mx-auto" #newCollection>
+  <h2 class="text-3xl lg:text-5xl font-bold text-center">
+    Productos Destacados
+  </h2>
+  <p class="text-lg text-gray-600 mt-5 mb-10 text-center">
+    Nuestros artículos más populares, seleccionados cuidadosamente por su
+    calidad y estilo.
+  </p>
+  <div
+    class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 place-content-between gap-5"
+  >
+    @defer (on viewport) { @for (product of featuredProducts | async; track
+    product.id) {
+    <app-product-card [product]="product" />
+    } } @placeholder {
+    <div class="w-[300px] h-[450px] bg-gray-200 animate-pulse rounded-md"></div>
+    }
+  </div>
+</section>
+<section class="py-20 bg-gradient-to-b from-[#feffff] to-[#dff7f7] mx-5">
+  <h2 class="text-3xl lg:text-5xl font-bold text-center">
+    Por qué Comprar con Nosotros
+  </h2>
+  <p class="text-lg text-gray-600 mt-5 mb-10 text-center">
+    Nos comprometemos a brindar la mejor experiencia de compra con un servicio
+    premium.
+  </p>
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 container mx-auto"
+  >
+    <app-text-card
+      icon="images/shipping.svg"
+      title="Envíos gratis"
+      description="Envío gratuito en pedidos superiores a $50. Entrega rápida en 2-5 días hábiles."
+    />
+    <app-text-card
+      icon="images/credit-card.svg"
+      title="Pagos Seguros"
+      description="Todas las transacciones son seguras y encriptadas. Aceptamos todas las principales tarjetas de crédito y PayPal."
+    />
+    <app-text-card
+      icon="images/return-box.svg"
+      title="Devoluciones Fáciles"
+      description="Política de devolución fácil de 30 días. ¿No estás satisfecho con tu compra? Devuélvela sin problemas."
+    />
+  </div>
+</section>
+<section class="py-20 container mx-auto px-5 lg:px-0" #newArrivals>
+  <h2 class="text-3xl lg:text-5xl font-bold text-center">Recien Agregados</h2>
+  <p class="text-lg text-gray-600 mt-5 mb-10 text-center">
+    Las últimas incorporaciones a nuestra colección, recién salidas de la mesa
+    de diseño.
+  </p>
+  <div
+    class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 place-content-between gap-5"
+  >
+    @defer (on viewport) { @for (product of recentProducts | async; track
+    product.id) {
+    <app-product-card [product]="product" tag="nuevo" />
+    } } @placeholder {
+    <div class="w-[300px] h-[450px] bg-gray-200 animate-pulse rounded-md"></div>
+    }
+  </div>
+</section>
+<section class="py-20 px-5 lg:px-0 bg-[#dff7f7]">
+  <div class="container mx-auto">
+    <h2 class="text-3xl lg:text-5xl font-bold text-center">
+      Artículos en oferta
+    </h2>
+    <p class="text-lg text-gray-600 mt-5 mb-10 text-center">
+      Ofertas por tiempo limitado en artículos seleccionados. ¡No te las
+      pierdas!
+    </p>
+    <div
+      class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 place-content-between gap-5"
+    >
+      @defer (on viewport) { @for (product of saleProducts | async; track
+      product.id) {
+      <app-product-card [product]="product" tag="oferta" [discount]="true" />
+      } } @placeholder {
+      <div
+        class="w-[300px] h-[450px] bg-gray-200 animate-pulse rounded-md"
+      ></div>
+      }
+    </div>
+  </div>
+</section>
