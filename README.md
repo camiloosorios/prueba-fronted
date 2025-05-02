@@ -63,7 +63,7 @@ Este proyecto es un ecommerce estilo tienda online que consume la API pública d
 
 - Clonar el repositorio:
   ```bash
-  git clone https://github.com/camiloosorios/prueba-fronted.git
+  git clone https://github.com/camiloosorios/prueba-frontend.git
   cd prueba-frontend
   ```
 - Instalar dependencias:
