@@ -1,6 +1,6 @@
 # Ecommerce Angular 19 - FakeStore API
 
-**Demo:** [https://curious-puffpuff-831583.netlify.app](https://curious-puffpuff-831583.netlify.app)
+**Demo:** [https://prueba-fronted-five.vercel.app](https://prueba-fronted-five.vercel.app/)
 
 Este proyecto es un ecommerce estilo tienda online que consume la API pública de [FakeStoreAPI](https://fakestoreapi.com/) para mostrar productos, permitiendo ver detalles de cada producto en su página individual e incluyendo funcionalidades de favoritos y carrito de compras. Está desarrollado con Angular 19 utilizando las últimas características del framework.
 
