@@ -17,7 +17,7 @@
       />
     </svg>
   </div>
-  <h2 class="text-4xl mx-5">Tu lista de favoritos está vacía</h2>
+  <h2 class="text-4xl mx-5 text-center">Tu lista de favoritos está vacía</h2>
   <p class="text-lg text-gray-700 mx-5 text-center">
     Parece que aún no has añadido ningún producto a tus favoritos
   </p>
@@ -47,6 +47,7 @@
       Tu Lista de Favoritos({{ favoriteService.getTotal() }})
     </h2>
   </div>
+
   <a routerLink="/" class="flex items-center gap-2 mt-5 mx-5 group">
     <svg
       width="800px"
@@ -66,15 +67,16 @@
       >Continuar comprando</span
     >
   </a>
+
   <div class="mt-10 mx-5">
     @for (item of favoriteService.favoriteProducts(); track item.id) {
     <div
-      class="w-full border border-gray-300 rounded-lg flex gap-5 mb-10 overflow-hidden shadow-sm"
+      class="w-full border border-gray-300 rounded-lg flex flex-col lg:flex-row gap-5 mb-10 overflow-hidden shadow-sm"
     >
       <img
         [src]="item.image"
         [alt]="item.title"
-        class="w-44 h-52 object-cover rounded-t-lg p-2"
+        class="w-44 mx-auto h-60 object-cover rounded-t-lg lg:rounded-l-lg p-2"
       />
       <div class="flex flex-col justify-evenly w-full p-5">
         <div>
@@ -92,7 +94,7 @@
           </div>
           <p class="text-gray-600">Color: White | Size: M</p>
         </div>
-        <div class="flex justify-between items-center">
+        <div class="flex justify-between items-center mt-4">
           <p
             class="text-gray-700 hover:text-red-400 transition-colors duration-300 cursor-pointer"
             (click)="favoriteService.remove(item.id)"
@@ -116,4 +118,5 @@
     }
   </div>
 </div>
+
 }

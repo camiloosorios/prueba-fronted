@@ -67,51 +67,50 @@
     <div class="col-span-3 mx-5">
       @for (item of cartService.cart(); track item.product.id) {
       <div
-        class="w-full border border-gray-300 rounded-lg flex gap-5 mb-10 overflow-hidden shadow-sm"
+        class="w-full border border-gray-300 rounded-2xl flex flex-col md:flex-row gap-5 mb-10 overflow-hidden shadow-sm"
       >
         <img
           [src]="item.product.image"
           [alt]="item.product.title"
-          class="w-44 h-52 object-cover rounded-t-lg p-2"
+          class="w-44 mx-auto h-60 object-cover p-2"
         />
-        <div class="flex flex-col justify-evenly w-full p-5">
-          <div>
-            <div class="flex justify-between items-center gap-5">
-              <h4
-                class="md:text-lg hover:text-[#38b2ac] transition-colors duration-150 cursor-pointer"
-              >
-                <a [routerLink]="'/products/' + item.product.id">
-                  {{ item.product.title }}
-                </a>
-              </h4>
-              <h4 class="md:text-lg font-semibold">
-                {{ item.product.price | currency }}
-              </h4>
-            </div>
-            <p class="text-gray-600">Color: White | Size: M</p>
+        <div class="flex flex-col justify-between w-full p-4 gap-4">
+          <div class="flex flex-col gap-1">
+            <a
+              [routerLink]="'/products/' + item.product.id"
+              class="text-lg font-semibold text-gray-800 hover:text-[#38b2ac] transition-colors"
+            >
+              {{ item.product.title }}
+            </a>
+            <p class="text-sm text-gray-500">Color: White | Size: M</p>
           </div>
           <div class="flex justify-between items-center">
-            <div>
+            <div class="flex items-center gap-2">
               <button
-                class="bg-[#f3f4f6] rounded-md text-gray-700 px-2 cursor-pointer hover:bg-[#38b2ac] hover:text-white transition-colors duration-300"
+                class="bg-gray-100 rounded-md text-gray-700 px-2 hover:bg-[#38b2ac] hover:text-white transition-colors duration-300 cursor-pointer"
                 (click)="cartService.decreaseQuantity(item.product.id)"
               >
                 -
               </button>
-              <span class="mx-3 text-lg">{{ item.quantity }}</span>
+              <span class="mx-2 text-lg">{{ item.quantity }}</span>
               <button
-                class="bg-[#f3f4f6] rounded-md text-gray-700 px-2 cursor-pointer hover:bg-[#38b2ac] hover:text-white transition-colors duration-300"
+                class="bg-gray-100 rounded-md text-gray-700 px-2 hover:bg-[#38b2ac] hover:text-white transition-colors duration-300 cursor-pointer"
                 (click)="cartService.addToCart(item.product)"
               >
                 +
               </button>
             </div>
-            <p
-              class="text-gray-700 hover:text-red-400 transition-colors duration-300 cursor-pointer"
-              (click)="cartService.removeFromCart(item.product.id)"
-            >
-              Eliminar
-            </p>
+            <div class="flex flex-col md:items-end items-start text-right">
+              <p class="font-semibold text-lg">
+                {{ item.product.price | currency }}
+              </p>
+              <button
+                class="text-sm text-gray-600 hover:text-red-500 transition-colors cursor-pointer"
+                (click)="cartService.removeFromCart(item.product.id)"
+              >
+                Eliminar
+              </button>
+            </div>
           </div>
         </div>
       </div>
