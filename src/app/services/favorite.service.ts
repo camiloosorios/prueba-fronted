@@ -1,18 +1,19 @@
-import { Injectable, signal } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { Product } from '../interfaces/product.interfaces';
+import { CartService } from './cart.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FavoriteService {
   private favorites = signal<Product[]>([]);
+  private readonly cartService = inject(CartService);
 
   get favoriteProducts() {
     return this.favorites;
   }
 
   add(product: Product): void {
-    console.log(product);
     const current = this.favorites();
     const exists = current.some((p) => p.id === product.id);
 
@@ -36,5 +37,10 @@ export class FavoriteService {
 
   getTotal(): number {
     return this.favorites().length;
+  }
+
+  moveToCart(product: Product): void {
+    this.cartService.addToCart(product);
+    this.remove(product.id);
   }
 }
