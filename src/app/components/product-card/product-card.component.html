@@ -33,7 +33,11 @@
       />
       <span class="ml-2 text-sm"> Agregar a carrito </span>
     </button>
-    <button class="cursor-pointer" (click)="favoriteService.add(product())">
+    <button
+      class="cursor-pointer"
+      (click)="favoriteService.add(product())"
+      id="add-to-favorites"
+    >
       <img src="images/favorites.svg" alt="Agregar a favoritos" class="w-7" />
     </button>
   </div>
@@ -46,10 +50,11 @@
     <p
       class="hover:text-[#38b2ac] transition-colors duration-150 cursor-pointer"
     >
-      <a [routerLink]="'/products/' + product().id">
+      <a [routerLink]="'/products/' + product().id" id="product-link">
         {{ product().title.slice(0, 66) }}
       </a>
     </p>
+
     @if (discount()) {
     <div class="flex gap-5 absolute bottom-2 left-4">
       <p class="font-semibold">{{ product().price | currency }}</p>
