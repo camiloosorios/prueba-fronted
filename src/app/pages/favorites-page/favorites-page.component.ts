@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FavoriteService } from '../../services/favorite.service';
 import { RouterLink } from '@angular/router';
 import { CurrencyPipe } from '@angular/common';
@@ -7,7 +7,7 @@ import { CurrencyPipe } from '@angular/common';
   selector: 'app-favorites-page',
   imports: [CurrencyPipe, RouterLink],
   templateUrl: './favorites-page.component.html',
-  styles: ``,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class FavoritesPageComponent {
   favoriteService = inject(FavoriteService);
